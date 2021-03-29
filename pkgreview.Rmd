@@ -113,8 +113,9 @@ rOpenSci's general software review system, for which the best source of
 information is provided by [reviews
 themselves](https://github.com/ropensci/software-review/issues), along with the
 [*Guide for Reviewers*](https://devguide.ropensci.org/reviewerguide.html).
-Beyond adherence to standards, we ask reviewers to explicitly consider the
-following aspects, some of which loosely correspond to sub-sections of the
+The standards are written in generality and cannot encompass expectations for 
+all situations.  Thus, we ask reviewers to explicitly consider the following 
+aspects, some of which loosely correspond to sub-sections of the
 [*General Standards for Statistical Software*](#general-standards):
 
 1. **Documentation**: Is the documentation sufficient to enable general use of
