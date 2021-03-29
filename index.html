@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>rOpenSci Statistical Software Peer Review</title>
+  <meta name="description" content="rOpenSci Statistical Software Peer Review" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="rOpenSci Statistical Software Peer Review" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ropensci-blog-guidance.netlify.com/" />
+  
+  
+  <meta name="github-repo" content="ropenscilabs/statistical-software-review-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rOpenSci Statistical Software Peer Review" />
+  
+  
+  
+
+<meta name="author" content="Mark Padgham and Noam Ross" />
+
+
+<meta name="date" content="2021-03-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+
+<link rel="next" href="overview.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/ropenscilabs/statistical-software-review-book"><i class="fa fa-github"></i> Statistical Software Peer Review</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.1</b> Contributors</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.1</b> Content</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#issue-authors"><i class="fa fa-check"></i><b>1.1.2</b> Issue Authors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview of the Project and of this Book</a><ul>
+<li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#project-motivation"><i class="fa fa-check"></i><b>2.1</b> Project Motivation</a></li>
+<li class="chapter" data-level="2.2" data-path="overview.html"><a href="overview.html#overview-scope"><i class="fa fa-check"></i><b>2.2</b> Scope of Statistical Software Review</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="overview.html"><a href="overview.html#the-r-language"><i class="fa fa-check"></i><b>2.2.1</b> The R Language</a></li>
+<li class="chapter" data-level="2.2.2" data-path="overview.html"><a href="overview.html#overview-categories"><i class="fa fa-check"></i><b>2.2.2</b> Categories of Statistical Software</a><ul>
+<li class="chapter" data-level="2.2.2.1" data-path="overview.html"><a href="overview.html#bayesian-and-monte-carlo-routines"><i class="fa fa-check"></i><b>2.2.2.1</b> <span>Bayesian and Monte Carlo Routines</span></a></li>
+<li class="chapter" data-level="2.2.2.2" data-path="overview.html"><a href="overview.html#regression-and-supervised-learning"><i class="fa fa-check"></i><b>2.2.2.2</b> <span>Regression and Supervised Learning</span></a></li>
+<li class="chapter" data-level="2.2.2.3" data-path="overview.html"><a href="overview.html#overview-unsupervised"><i class="fa fa-check"></i><b>2.2.2.3</b> Dimensionality Reduction, Clustering, and Unsupervised Learning</a></li>
+<li class="chapter" data-level="2.2.2.4" data-path="overview.html"><a href="overview.html#overview-eda"><i class="fa fa-check"></i><b>2.2.2.4</b> Exploratory Data Analysis (EDA) and Summary Statistics</a></li>
+<li class="chapter" data-level="2.2.2.5" data-path="overview.html"><a href="overview.html#overview-ts"><i class="fa fa-check"></i><b>2.2.2.5</b> Time Series Analyses</a></li>
+<li class="chapter" data-level="2.2.2.6" data-path="overview.html"><a href="overview.html#overview-ml"><i class="fa fa-check"></i><b>2.2.2.6</b> Machine Learning</a></li>
+<li class="chapter" data-level="2.2.2.7" data-path="overview.html"><a href="overview.html#overview-spatial"><i class="fa fa-check"></i><b>2.2.2.7</b> Spatial Analyses</a></li>
+<li class="chapter" data-level="2.2.2.8" data-path="overview.html"><a href="overview.html#overview-distributions"><i class="fa fa-check"></i><b>2.2.2.8</b> Probability Distributions</a></li>
+<li class="chapter" data-level="2.2.2.9" data-path="overview.html"><a href="overview.html#overview-wrapper"><i class="fa fa-check"></i><b>2.2.2.9</b> Wrapper Packages</a></li>
+<li class="chapter" data-level="2.2.2.10" data-path="overview.html"><a href="overview.html#overview-networks"><i class="fa fa-check"></i><b>2.2.2.10</b> Networks</a></li>
+<li class="chapter" data-level="2.2.2.11" data-path="overview.html"><a href="overview.html#overview-workflow"><i class="fa fa-check"></i><b>2.2.2.11</b> Workflow Support</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="overview.html"><a href="overview.html#prior-art"><i class="fa fa-check"></i><b>2.3</b> Prior Art</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="overview.html"><a href="overview.html#ropensci"><i class="fa fa-check"></i><b>2.3.1</b> rOpenSci</a></li>
+<li class="chapter" data-level="2.3.2" data-path="overview.html"><a href="overview.html#the-journal-of-open-source-software"><i class="fa fa-check"></i><b>2.3.2</b> The Journal of Open Source Software</a></li>
+<li class="chapter" data-level="2.3.3" data-path="overview.html"><a href="overview.html#the-debian-system"><i class="fa fa-check"></i><b>2.3.3</b> The Debian System</a></li>
+<li class="chapter" data-level="2.3.4" data-path="overview.html"><a href="overview.html#other-potential-models"><i class="fa fa-check"></i><b>2.3.4</b> Other Potential Models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="overview.html"><a href="overview.html#use-of-this-book"><i class="fa fa-check"></i><b>2.4</b> Use of this Book</a></li>
+</ul></li>
+<li class="part"><span><b>II Package Development, Submission, and Review</b></span></li>
+<li class="chapter" data-level="3" data-path="pkgdev.html"><a href="pkgdev.html"><i class="fa fa-check"></i><b>3</b> Guide for Authors</a><ul>
+<li class="chapter" data-level="3.1" data-path="pkgdev.html"><a href="pkgdev.html#scope"><i class="fa fa-check"></i><b>3.1</b> Scope</a></li>
+<li class="chapter" data-level="3.2" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-autotest"><i class="fa fa-check"></i><b>3.2</b> The <span><code>autotest</code> package</span></a></li>
+<li class="chapter" data-level="3.3" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-srr"><i class="fa fa-check"></i><b>3.3</b> Alignment with Standards</a></li>
+<li class="chapter" data-level="3.4" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-badges"><i class="fa fa-check"></i><b>3.4</b> Gold, Silver, and Bronze Badges</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-bronze"><i class="fa fa-check"></i><b>3.4.1</b> Bronze</a></li>
+<li class="chapter" data-level="3.4.2" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-silver"><i class="fa fa-check"></i><b>3.4.2</b> Silver</a></li>
+<li class="chapter" data-level="3.4.3" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-gold"><i class="fa fa-check"></i><b>3.4.3</b> Gold</a></li>
+<li class="chapter" data-level="3.4.4" data-path="pkgdev.html"><a href="pkgdev.html#pkgdev-lifecycle"><i class="fa fa-check"></i><b>3.4.4</b> Software Life Cycle Statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pkgsubmission.html"><a href="pkgsubmission.html"><i class="fa fa-check"></i><b>4</b> Guide for Editors</a><ul>
+<li class="chapter" data-level="4.1" data-path="pkgsubmission.html"><a href="pkgsubmission.html#editor-in-chief"><i class="fa fa-check"></i><b>4.1</b> Editor-in-Chief</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="pkgsubmission.html"><a href="pkgsubmission.html#bot-checks-executed-on-initial-submission"><i class="fa fa-check"></i><b>4.1.1</b> Bot checks executed on initial submission</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="pkgsubmission.html"><a href="pkgsubmission.html#handling-editor"><i class="fa fa-check"></i><b>4.2</b> Handling Editor</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="pkgreview.html"><a href="pkgreview.html"><i class="fa fa-check"></i><b>5</b> Guide for Reviewers</a><ul>
+<li class="chapter" data-level="5.1" data-path="pkgreview.html"><a href="pkgreview.html#package-badging"><i class="fa fa-check"></i><b>5.1</b> Package badging</a></li>
+<li class="chapter" data-level="5.2" data-path="pkgreview.html"><a href="pkgreview.html#general-review-requirements"><i class="fa fa-check"></i><b>5.2</b> General Review Requirements</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="pkgreview.html"><a href="pkgreview.html#assessment-against-standards"><i class="fa fa-check"></i><b>5.2.1</b> Assessment against standards</a></li>
+<li class="chapter" data-level="5.2.2" data-path="pkgreview.html"><a href="pkgreview.html#general-package-review"><i class="fa fa-check"></i><b>5.2.2</b> General Package Review</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="pkgreview.html"><a href="pkgreview.html#review-for-silver-and-gold-badges"><i class="fa fa-check"></i><b>5.3</b> Review for Silver and Gold Badges</a></li>
+</ul></li>
+<li class="part"><span><b>III Standards</b></span></li>
+<li class="chapter" data-level="6" data-path="standards.html"><a href="standards.html"><i class="fa fa-check"></i><b>6</b> Standards: Version 0.0.X</a><ul>
+<li class="chapter" data-level="6.1" data-path="standards.html"><a href="standards.html#general-standards"><i class="fa fa-check"></i><b>6.1</b> General Standards for Statistical Software</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="standards.html"><a href="standards.html#documentation"><i class="fa fa-check"></i><b>6.1.1</b> Documentation</a><ul>
+<li class="chapter" data-level="6.1.1.1" data-path="standards.html"><a href="standards.html#statistical-terminology"><i class="fa fa-check"></i><b>6.1.1.1</b> Statistical Terminology</a></li>
+<li class="chapter" data-level="6.1.1.2" data-path="standards.html"><a href="standards.html#function-level-documentation"><i class="fa fa-check"></i><b>6.1.1.2</b> Function-level Documentation</a></li>
+<li class="chapter" data-level="6.1.1.3" data-path="standards.html"><a href="standards.html#supplementary-documentation"><i class="fa fa-check"></i><b>6.1.1.3</b> Supplementary Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.1.2" data-path="standards.html"><a href="standards.html#input-structures"><i class="fa fa-check"></i><b>6.1.2</b> Input Structures</a><ul>
+<li class="chapter" data-level="6.1.2.1" data-path="standards.html"><a href="standards.html#uni-variate-vector-input"><i class="fa fa-check"></i><b>6.1.2.1</b> Uni-variate (Vector) Input</a></li>
+<li class="chapter" data-level="6.1.2.2" data-path="standards.html"><a href="standards.html#tabular-input"><i class="fa fa-check"></i><b>6.1.2.2</b> Tabular Input</a></li>
+<li class="chapter" data-level="6.1.2.3" data-path="standards.html"><a href="standards.html#missing-or-undefined-values"><i class="fa fa-check"></i><b>6.1.2.3</b> Missing or Undefined Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.1.3" data-path="standards.html"><a href="standards.html#algorithms"><i class="fa fa-check"></i><b>6.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="6.1.4" data-path="standards.html"><a href="standards.html#output-structures"><i class="fa fa-check"></i><b>6.1.4</b> Output Structures</a></li>
+<li class="chapter" data-level="6.1.5" data-path="standards.html"><a href="standards.html#testing"><i class="fa fa-check"></i><b>6.1.5</b> Testing</a><ul>
+<li class="chapter" data-level="6.1.5.1" data-path="standards.html"><a href="standards.html#test-data-sets"><i class="fa fa-check"></i><b>6.1.5.1</b> Test Data Sets</a></li>
+<li class="chapter" data-level="6.1.5.2" data-path="standards.html"><a href="standards.html#responses-to-unexpected-input"><i class="fa fa-check"></i><b>6.1.5.2</b> Responses to Unexpected Input</a></li>
+<li class="chapter" data-level="6.1.5.3" data-path="standards.html"><a href="standards.html#algorithm-tests"><i class="fa fa-check"></i><b>6.1.5.3</b> Algorithm Tests</a></li>
+<li class="chapter" data-level="6.1.5.4" data-path="standards.html"><a href="standards.html#extended-tests"><i class="fa fa-check"></i><b>6.1.5.4</b> Extended tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="standards.html"><a href="standards.html#standards-bayesian"><i class="fa fa-check"></i><b>6.2</b> Bayesian and Monte Carlo Software</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="standards.html"><a href="standards.html#documentation-of-inputs"><i class="fa fa-check"></i><b>6.2.1</b> Documentation of Inputs</a></li>
+<li class="chapter" data-level="6.2.2" data-path="standards.html"><a href="standards.html#input-data-structures-and-validation"><i class="fa fa-check"></i><b>6.2.2</b> Input Data Structures and Validation</a><ul>
+<li class="chapter" data-level="6.2.2.1" data-path="standards.html"><a href="standards.html#input-data"><i class="fa fa-check"></i><b>6.2.2.1</b> Input Data</a></li>
+<li class="chapter" data-level="6.2.2.2" data-path="standards.html"><a href="standards.html#prior-distributions-model-specifications-and-distributional-parameters"><i class="fa fa-check"></i><b>6.2.2.2</b> Prior Distributions, Model Specifications, and Distributional Parameters</a></li>
+<li class="chapter" data-level="6.2.2.3" data-path="standards.html"><a href="standards.html#computational-parameters"><i class="fa fa-check"></i><b>6.2.2.3</b> Computational Parameters</a></li>
+<li class="chapter" data-level="6.2.2.4" data-path="standards.html"><a href="standards.html#parameters-controlling-start-values"><i class="fa fa-check"></i><b>6.2.2.4</b> Parameters Controlling Start Values</a></li>
+<li class="chapter" data-level="6.2.2.5" data-path="standards.html"><a href="standards.html#output-verbosity"><i class="fa fa-check"></i><b>6.2.2.5</b> Output Verbosity</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2.3" data-path="standards.html"><a href="standards.html#pre-processing-and-data-transformation"><i class="fa fa-check"></i><b>6.2.3</b> Pre-processing and Data Transformation</a><ul>
+<li class="chapter" data-level="6.2.3.1" data-path="standards.html"><a href="standards.html#missing-values"><i class="fa fa-check"></i><b>6.2.3.1</b> Missing Values</a></li>
+<li class="chapter" data-level="6.2.3.2" data-path="standards.html"><a href="standards.html#perfect-collinearity"><i class="fa fa-check"></i><b>6.2.3.2</b> Perfect Collinearity</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2.4" data-path="standards.html"><a href="standards.html#analytic-algorithms"><i class="fa fa-check"></i><b>6.2.4</b> Analytic Algorithms</a></li>
+<li class="chapter" data-level="6.2.5" data-path="standards.html"><a href="standards.html#return-values"><i class="fa fa-check"></i><b>6.2.5</b> Return Values</a></li>
+<li class="chapter" data-level="6.2.6" data-path="standards.html"><a href="standards.html#additional-functionality"><i class="fa fa-check"></i><b>6.2.6</b> Additional Functionality</a></li>
+<li class="chapter" data-level="6.2.7" data-path="standards.html"><a href="standards.html#tests"><i class="fa fa-check"></i><b>6.2.7</b> Tests</a><ul>
+<li class="chapter" data-level="6.2.7.1" data-path="standards.html"><a href="standards.html#parameter-recovery-tests"><i class="fa fa-check"></i><b>6.2.7.1</b> Parameter Recovery Tests</a></li>
+<li class="chapter" data-level="6.2.7.2" data-path="standards.html"><a href="standards.html#algorithmic-scaling-tests"><i class="fa fa-check"></i><b>6.2.7.2</b> Algorithmic Scaling Tests</a></li>
+<li class="chapter" data-level="6.2.7.3" data-path="standards.html"><a href="standards.html#scaling-of-input-to-output-data"><i class="fa fa-check"></i><b>6.2.7.3</b> Scaling of Input to Output Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="standards.html"><a href="standards.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>6.3</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="standards.html"><a href="standards.html#documentation-standards"><i class="fa fa-check"></i><b>6.3.1</b> Documentation Standards</a></li>
+<li class="chapter" data-level="6.3.2" data-path="standards.html"><a href="standards.html#input-data-1"><i class="fa fa-check"></i><b>6.3.2</b> Input Data</a><ul>
+<li class="chapter" data-level="6.3.2.1" data-path="standards.html"><a href="standards.html#index-columns"><i class="fa fa-check"></i><b>6.3.2.1</b> Index Columns</a></li>
+<li class="chapter" data-level="6.3.2.2" data-path="standards.html"><a href="standards.html#multi-tabular-input"><i class="fa fa-check"></i><b>6.3.2.2</b> Multi-tabular input</a></li>
+<li class="chapter" data-level="6.3.2.3" data-path="standards.html"><a href="standards.html#classes-and-sub-classes"><i class="fa fa-check"></i><b>6.3.2.3</b> Classes and Sub-Classes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3.3" data-path="standards.html"><a href="standards.html#analytic-algorithms-1"><i class="fa fa-check"></i><b>6.3.3</b> Analytic Algorithms</a></li>
+<li class="chapter" data-level="6.3.4" data-path="standards.html"><a href="standards.html#return-results-output-data"><i class="fa fa-check"></i><b>6.3.4</b> Return Results / Output Data</a></li>
+<li class="chapter" data-level="6.3.5" data-path="standards.html"><a href="standards.html#visualization-and-summary-output"><i class="fa fa-check"></i><b>6.3.5</b> Visualization and Summary Output</a><ul>
+<li class="chapter" data-level="6.3.5.1" data-path="standards.html"><a href="standards.html#summary-and-screen-based-output"><i class="fa fa-check"></i><b>6.3.5.1</b> Summary and Screen-based Output</a></li>
+<li class="chapter" data-level="6.3.5.2" data-path="standards.html"><a href="standards.html#general-standards-for-visualization-static-and-dynamic"><i class="fa fa-check"></i><b>6.3.5.2</b> General Standards for Visualization (Static and Dynamic)</a></li>
+<li class="chapter" data-level="6.3.5.3" data-path="standards.html"><a href="standards.html#dynamic-visualization"><i class="fa fa-check"></i><b>6.3.5.3</b> Dynamic Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3.6" data-path="standards.html"><a href="standards.html#testing-1"><i class="fa fa-check"></i><b>6.3.6</b> Testing</a><ul>
+<li class="chapter" data-level="6.3.6.1" data-path="standards.html"><a href="standards.html#return-values-1"><i class="fa fa-check"></i><b>6.3.6.1</b> Return Values</a></li>
+<li class="chapter" data-level="6.3.6.2" data-path="standards.html"><a href="standards.html#graphical-output"><i class="fa fa-check"></i><b>6.3.6.2</b> Graphical Output</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="standards.html"><a href="standards.html#ml-standards"><i class="fa fa-check"></i><b>6.4</b> Machine Learning Software</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="standards.html"><a href="standards.html#input-data-specification"><i class="fa fa-check"></i><b>6.4.1</b> Input Data Specification</a><ul>
+<li class="chapter" data-level="6.4.1.1" data-path="standards.html"><a href="standards.html#missing-values-1"><i class="fa fa-check"></i><b>6.4.1.1</b> Missing Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4.2" data-path="standards.html"><a href="standards.html#pre-processing"><i class="fa fa-check"></i><b>6.4.2</b> Pre-processing</a></li>
+<li class="chapter" data-level="6.4.3" data-path="standards.html"><a href="standards.html#model-and-algorithm-specification"><i class="fa fa-check"></i><b>6.4.3</b> Model and Algorithm Specification</a><ul>
+<li class="chapter" data-level="6.4.3.1" data-path="standards.html"><a href="standards.html#control-parameters"><i class="fa fa-check"></i><b>6.4.3.1</b> Control Parameters</a></li>
+<li class="chapter" data-level="6.4.3.2" data-path="standards.html"><a href="standards.html#cpu-and-gpu-processing"><i class="fa fa-check"></i><b>6.4.3.2</b> CPU and GPU processing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4.4" data-path="standards.html"><a href="standards.html#model-training"><i class="fa fa-check"></i><b>6.4.4</b> Model Training</a><ul>
+<li class="chapter" data-level="6.4.4.1" data-path="standards.html"><a href="standards.html#batch-processing"><i class="fa fa-check"></i><b>6.4.4.1</b> Batch Processing</a></li>
+<li class="chapter" data-level="6.4.4.2" data-path="standards.html"><a href="standards.html#re-sampling"><i class="fa fa-check"></i><b>6.4.4.2</b> Re-sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4.5" data-path="standards.html"><a href="standards.html#model-output-and-performance"><i class="fa fa-check"></i><b>6.4.5</b> Model Output and Performance</a><ul>
+<li class="chapter" data-level="6.4.5.1" data-path="standards.html"><a href="standards.html#model-output"><i class="fa fa-check"></i><b>6.4.5.1</b> Model Output</a></li>
+<li class="chapter" data-level="6.4.5.2" data-path="standards.html"><a href="standards.html#model-performance"><i class="fa fa-check"></i><b>6.4.5.2</b> Model Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4.6" data-path="standards.html"><a href="standards.html#documentation-1"><i class="fa fa-check"></i><b>6.4.6</b> Documentation</a></li>
+<li class="chapter" data-level="6.4.7" data-path="standards.html"><a href="standards.html#testing-2"><i class="fa fa-check"></i><b>6.4.7</b> Testing</a><ul>
+<li class="chapter" data-level="6.4.7.1" data-path="standards.html"><a href="standards.html#input-data-2"><i class="fa fa-check"></i><b>6.4.7.1</b> Input Data</a></li>
+<li class="chapter" data-level="6.4.7.2" data-path="standards.html"><a href="standards.html#model-classes"><i class="fa fa-check"></i><b>6.4.7.2</b> Model Classes</a></li>
+<li class="chapter" data-level="6.4.7.3" data-path="standards.html"><a href="standards.html#model-training-1"><i class="fa fa-check"></i><b>6.4.7.3</b> Model Training</a></li>
+<li class="chapter" data-level="6.4.7.4" data-path="standards.html"><a href="standards.html#model-performance-1"><i class="fa fa-check"></i><b>6.4.7.4</b> Model Performance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="standards.html"><a href="standards.html#standards-regression"><i class="fa fa-check"></i><b>6.5</b> Regression and Supervised Learning</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="standards.html"><a href="standards.html#input-data-structures-and-validation-1"><i class="fa fa-check"></i><b>6.5.1</b> Input data structures and validation</a></li>
+<li class="chapter" data-level="6.5.2" data-path="standards.html"><a href="standards.html#pre-processing-and-variable-transformation"><i class="fa fa-check"></i><b>6.5.2</b> Pre-processing and Variable Transformation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="standards.html"><a href="standards.html#algorithms-1"><i class="fa fa-check"></i><b>6.5.3</b> Algorithms</a></li>
+<li class="chapter" data-level="6.5.4" data-path="standards.html"><a href="standards.html#return-results"><i class="fa fa-check"></i><b>6.5.4</b> Return Results</a><ul>
+<li class="chapter" data-level="6.5.4.1" data-path="standards.html"><a href="standards.html#accessor-methods"><i class="fa fa-check"></i><b>6.5.4.1</b> Accessor Methods</a></li>
+<li class="chapter" data-level="6.5.4.2" data-path="standards.html"><a href="standards.html#prediction-extrapolation-and-forecasting"><i class="fa fa-check"></i><b>6.5.4.2</b> Prediction, Extrapolation, and Forecasting</a></li>
+<li class="chapter" data-level="6.5.4.3" data-path="standards.html"><a href="standards.html#reporting-return-results"><i class="fa fa-check"></i><b>6.5.4.3</b> Reporting Return Results</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5.5" data-path="standards.html"><a href="standards.html#documentation-2"><i class="fa fa-check"></i><b>6.5.5</b> Documentation</a></li>
+<li class="chapter" data-level="6.5.6" data-path="standards.html"><a href="standards.html#visualization"><i class="fa fa-check"></i><b>6.5.6</b> Visualization</a></li>
+<li class="chapter" data-level="6.5.7" data-path="standards.html"><a href="standards.html#testing-3"><i class="fa fa-check"></i><b>6.5.7</b> Testing</a><ul>
+<li class="chapter" data-level="6.5.7.1" data-path="standards.html"><a href="standards.html#input-data-3"><i class="fa fa-check"></i><b>6.5.7.1</b> Input Data</a></li>
+<li class="chapter" data-level="6.5.7.2" data-path="standards.html"><a href="standards.html#return-results-1"><i class="fa fa-check"></i><b>6.5.7.2</b> Return Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="standards.html"><a href="standards.html#spatial-software"><i class="fa fa-check"></i><b>6.6</b> Spatial Software</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="standards.html"><a href="standards.html#spatial-domains"><i class="fa fa-check"></i><b>6.6.1</b> Spatial Domains</a></li>
+<li class="chapter" data-level="6.6.2" data-path="standards.html"><a href="standards.html#input-data-structures-and-validation-2"><i class="fa fa-check"></i><b>6.6.2</b> Input data structures and validation</a></li>
+<li class="chapter" data-level="6.6.3" data-path="standards.html"><a href="standards.html#algorithms-2"><i class="fa fa-check"></i><b>6.6.3</b> Algorithms</a></li>
+<li class="chapter" data-level="6.6.4" data-path="standards.html"><a href="standards.html#return-results-2"><i class="fa fa-check"></i><b>6.6.4</b> Return Results</a></li>
+<li class="chapter" data-level="6.6.5" data-path="standards.html"><a href="standards.html#visualization-1"><i class="fa fa-check"></i><b>6.6.5</b> Visualization</a></li>
+<li class="chapter" data-level="6.6.6" data-path="standards.html"><a href="standards.html#testing-4"><i class="fa fa-check"></i><b>6.6.6</b> Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="standards.html"><a href="standards.html#time-series-software"><i class="fa fa-check"></i><b>6.7</b> Time Series Software</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="standards.html"><a href="standards.html#input-data-structures-and-validation-3"><i class="fa fa-check"></i><b>6.7.1</b> Input data structures and validation</a><ul>
+<li class="chapter" data-level="6.7.1.1" data-path="standards.html"><a href="standards.html#time-intervals-and-relative-time"><i class="fa fa-check"></i><b>6.7.1.1</b> Time Intervals and Relative Time</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7.2" data-path="standards.html"><a href="standards.html#pre-processing-and-variable-transformation-1"><i class="fa fa-check"></i><b>6.7.2</b> Pre-processing and Variable Transformation</a><ul>
+<li class="chapter" data-level="6.7.2.1" data-path="standards.html"><a href="standards.html#missing-data"><i class="fa fa-check"></i><b>6.7.2.1</b> Missing Data</a></li>
+<li class="chapter" data-level="6.7.2.2" data-path="standards.html"><a href="standards.html#stationarity"><i class="fa fa-check"></i><b>6.7.2.2</b> Stationarity</a></li>
+<li class="chapter" data-level="6.7.2.3" data-path="standards.html"><a href="standards.html#covariance-matrices"><i class="fa fa-check"></i><b>6.7.2.3</b> Covariance Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7.3" data-path="standards.html"><a href="standards.html#analytic-algorithms-2"><i class="fa fa-check"></i><b>6.7.3</b> Analytic Algorithms</a><ul>
+<li class="chapter" data-level="6.7.3.1" data-path="standards.html"><a href="standards.html#forecasting"><i class="fa fa-check"></i><b>6.7.3.1</b> Forecasting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7.4" data-path="standards.html"><a href="standards.html#return-results-3"><i class="fa fa-check"></i><b>6.7.4</b> Return Results</a><ul>
+<li class="chapter" data-level="6.7.4.1" data-path="standards.html"><a href="standards.html#data-transformation"><i class="fa fa-check"></i><b>6.7.4.1</b> Data Transformation</a></li>
+<li class="chapter" data-level="6.7.4.2" data-path="standards.html"><a href="standards.html#forecasting-1"><i class="fa fa-check"></i><b>6.7.4.2</b> Forecasting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7.5" data-path="standards.html"><a href="standards.html#visualization-2"><i class="fa fa-check"></i><b>6.7.5</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="standards.html"><a href="standards.html#dimensionality-reduction-clustering-and-unsupervised-learning"><i class="fa fa-check"></i><b>6.8</b> Dimensionality Reduction, Clustering, and Unsupervised Learning</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="standards.html"><a href="standards.html#input-data-structures-and-validation-4"><i class="fa fa-check"></i><b>6.8.1</b> Input Data Structures and Validation</a></li>
+<li class="chapter" data-level="6.8.2" data-path="standards.html"><a href="standards.html#pre-processing-and-variable-transformation-2"><i class="fa fa-check"></i><b>6.8.2</b> Pre-processing and Variable Transformation</a></li>
+<li class="chapter" data-level="6.8.3" data-path="standards.html"><a href="standards.html#algorithms-3"><i class="fa fa-check"></i><b>6.8.3</b> Algorithms</a><ul>
+<li class="chapter" data-level="6.8.3.1" data-path="standards.html"><a href="standards.html#labelling"><i class="fa fa-check"></i><b>6.8.3.1</b> Labelling</a></li>
+<li class="chapter" data-level="6.8.3.2" data-path="standards.html"><a href="standards.html#prediction"><i class="fa fa-check"></i><b>6.8.3.2</b> Prediction</a></li>
+<li class="chapter" data-level="6.8.3.3" data-path="standards.html"><a href="standards.html#group-distributions-and-associated-statistics"><i class="fa fa-check"></i><b>6.8.3.3</b> Group Distributions and Associated Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8.4" data-path="standards.html"><a href="standards.html#return-results-4"><i class="fa fa-check"></i><b>6.8.4</b> Return Results</a><ul>
+<li class="chapter" data-level="6.8.4.1" data-path="standards.html"><a href="standards.html#reporting-return-results-1"><i class="fa fa-check"></i><b>6.8.4.1</b> Reporting Return Results</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8.5" data-path="standards.html"><a href="standards.html#documentation-3"><i class="fa fa-check"></i><b>6.8.5</b> Documentation</a></li>
+<li class="chapter" data-level="6.8.6" data-path="standards.html"><a href="standards.html#visualization-3"><i class="fa fa-check"></i><b>6.8.6</b> Visualization</a></li>
+<li class="chapter" data-level="6.8.7" data-path="standards.html"><a href="standards.html#testing-5"><i class="fa fa-check"></i><b>6.8.7</b> Testing</a><ul>
+<li class="chapter" data-level="6.8.7.1" data-path="standards.html"><a href="standards.html#input-scaling"><i class="fa fa-check"></i><b>6.8.7.1</b> Input Scaling</a></li>
+<li class="chapter" data-level="6.8.7.2" data-path="standards.html"><a href="standards.html#output-labelling"><i class="fa fa-check"></i><b>6.8.7.2</b> Output Labelling</a></li>
+<li class="chapter" data-level="6.8.7.3" data-path="standards.html"><a href="standards.html#prediction-1"><i class="fa fa-check"></i><b>6.8.7.3</b> Prediction</a></li>
+<li class="chapter" data-level="6.8.7.4" data-path="standards.html"><a href="standards.html#batch-processing-1"><i class="fa fa-check"></i><b>6.8.7.4</b> Batch Processing</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i><b>A</b> Appendices</a><ul>
+<li class="chapter" data-level="A.1" data-path="appendices.html"><a href="appendices.html#python"><i class="fa fa-check"></i><b>A.1</b> Notes on Scope and the Python Statistical Ecosystem</a></li>
+<li class="chapter" data-level="A.2" data-path="appendices.html"><a href="appendices.html#appendix-categories"><i class="fa fa-check"></i><b>A.2</b> Empirical Derivation of Categories</a></li>
+<li class="chapter" data-level="A.3" data-path="appendices.html"><a href="appendices.html#appendix-keywords"><i class="fa fa-check"></i><b>A.3</b> Analysis of statistical software keywords</a></li>
+<li class="chapter" data-level="A.4" data-path="appendices.html"><a href="appendices.html#appendix-other-software-standards"><i class="fa fa-check"></i><b>A.4</b> Other Software Standards</a></li>
+<li class="chapter" data-level="A.5" data-path="appendices.html"><a href="appendices.html#bibliography"><i class="fa fa-check"></i><b>A.5</b> Bibliography</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
+#download: [pdf]
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rOpenSci Statistical Software Peer Review</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">rOpenSci Statistical Software Peer Review</h1>
+<p class="author"><em>Mark Padgham and Noam Ross</em></p>
+<p class="date"><em>2021-03-29</em></p>
+</div>
+<div id="welcome" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Welcome</h1>
+<p>Welcome to <a href="https://ropensci.org">rOpenSci</a>’s project
+developing <a href="https://ropensci.org/software-review/">software peer review</a> system
+for statistical software in R packages and beyond. We invite you to join us
+in developing standards for processes of assessment and peer review of
+statistical software.</p>
+<p>rOpenSci currently runs software peer review for R packages focused on data
+life cycle management. To apply these processes to software implementing
+statistical methods and algorithms, we need new ways of evaluating and testing
+software, and managing the review process. This book serves as a home for
+collecting research and developing those standards. As the book develops, it
+will become an extension of <a href="https://devguide.ropensci.org/">rOpenSci Packages: Development, Maintenance, and
+Peer Review</a>, documenting not only our
+guidelines for statistical software but also the process of expanding the scope
+of review so it may be reproduced in other domains.</p>
+<p>You are invited to contribute to this project by filing suggestions as
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/issues">issues in the book’s GitHub repository</a>.
+We also have a dedicated <a href="https://discuss.ropensci.org/c/statistical-software-peer-review/28">area for discussion on the rOpenSci forum</a>.
+Feedback on standards is particularly welcome.</p>
+<p>For this project we are lucky to have support of a great steering committee. The
+committee’s role is to help us with outreach to statistical communities, vetting
+community input and prioritizing our work. They are:</p>
+<ul>
+<li><a href="https://ms.mcmaster.ca/~bolker/">Ben Bolker</a> (<a href="https://twitter.com/bolkerb">@bolkerb</a>) McMaster University</li>
+<li><a href="http://www.lancs.ac.uk/~killick/">Rebecca Killick</a>, Lancaster University</li>
+<li><a href="https://www.stephaniehicks.com/">Stephanie Hicks</a> (<a href="https://twitter.com/stephaniehicks">@stephaniehicks</a>), Johns Hopkins University</li>
+<li><a href="http://appliedpredictivemodeling.com/">Max Kuhn</a> (<a href="https://twitter.com/topepos">@topepos</a>), RStudio</li>
+<li><a href="http://www.paulamoraga.com/">Paula Moraga</a>, King Abdullah University of Science and Technology, Saudi Arabia</li>
+<li><a href="http://lcolladotor.github.io/">Leonardo Collado-Torres</a> (<a href="https://twitter.com/lcolladotor">@lcolladotor</a>), Lieber Institute for Brain Development, USA</li>
+</ul>
+<p>This work is <a href="https://ropensci.org/blog/2019/07/15/expanding-software-review/">supported by the Sloan Foundation</a>
+and is organized under an
+<a href="https://www.r-consortium.org/projects/isc-working-groups">R Consortium Working Group</a>.</p>
+<div id="contributors" class="section level2">
+<h2><span class="header-section-number">1.1</span> Contributors</h2>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<p>All contributions to this project are gratefully acknowledged using the <a href="https://github.com/ropenscilabs/allcontributors"><code>allcontributors</code> package</a> following the <a href="https://allcontributors.org">all-contributors</a> specification. Contributions of any kind are welcome!</p>
+<div id="content" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Content</h3>
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/mpadge">
+<img src="https://avatars.githubusercontent.com/u/6697851?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=mpadge">mpadge</a>
+</td>
+<td align="center">
+<a href="https://github.com/noamross">
+<img src="https://avatars.githubusercontent.com/u/571752?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=noamross">noamross</a>
+</td>
+<td align="center">
+<a href="https://github.com/maelle">
+<img src="https://avatars.githubusercontent.com/u/8360597?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=maelle">maelle</a>
+</td>
+<td align="center">
+<a href="https://github.com/Nowosad">
+<img src="https://avatars.githubusercontent.com/u/3457131?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=Nowosad">Nowosad</a>
+</td>
+<td align="center">
+<a href="https://github.com/richfitz">
+<img src="https://avatars.githubusercontent.com/u/1558093?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=richfitz">richfitz</a>
+</td>
+<td align="center">
+<a href="https://github.com/elong0527">
+<img src="https://avatars.githubusercontent.com/u/465246?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=elong0527">elong0527</a>
+</td>
+<td align="center">
+<a href="https://github.com/Pakillo">
+<img src="https://avatars.githubusercontent.com/u/1597843?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=Pakillo">Pakillo</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="https://github.com/briatte">
+<img src="https://avatars.githubusercontent.com/u/322533?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=briatte">briatte</a>
+</td>
+<td align="center">
+<a href="https://github.com/lcolladotor">
+<img src="https://avatars.githubusercontent.com/u/2288213?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/commits?author=lcolladotor">lcolladotor</a>
+</td>
+</tr>
+</table>
+</div>
+<div id="issue-authors" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Issue Authors</h3>
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/elimillera">
+<img src="https://avatars.githubusercontent.com/u/24767886?u=16d22ed97b442cfa1847d0f110b7dbf5c190c5a5&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/issues?q=is%3Aissue+author%3Aelimillera">elimillera</a>
+</td>
+<td align="center">
+<a href="https://github.com/IndrajeetPatil">
+<img src="https://avatars.githubusercontent.com/u/11330453?u=6eb9f03fe4cc5a2a67633252acda215b113234be&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/ropenscilabs/statistical-software-review-book/issues?q=is%3Aissue+author%3AIndrajeetPatil">IndrajeetPatil</a>
+</td>
+</tr>
+</table>
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": true,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ropenscilabs/statistical-software-review-book/edit/master/index.Rmd",
+"text": "Edit this chapter"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": false,
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
