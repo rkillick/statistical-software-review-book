@@ -144,7 +144,7 @@ contained in the opening comment of the issue. These may be extracted by
 calling:
 
 ```
-@ropensci-review-bot stats grade
+@ropensci-review-bot check readme
 ```
 
 Editors may modify these grades by editing the opening comment, and changing
